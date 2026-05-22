@@ -6,3 +6,4 @@ dist
 *.db-wal
 firebase-key.json
 .DS_Store
+opencode.json
