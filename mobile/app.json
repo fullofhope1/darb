@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "درب",
+    "slug": "darb",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "darb",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.darb.app"
+    },
+    "android": {
+      "package": "com.darb.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1b6b3e"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-splash-screen", { "backgroundColor": "#1b6b3e", "resizeMode": "contain" }]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
