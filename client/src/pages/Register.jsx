@@ -20,7 +20,7 @@ export default function Register({ onLogin }) {
       localStorage.setItem('user', JSON.stringify(data.user));
       onLogin(data.user);
       // Send OTP for verification
-      try { await auth.sendOtp(phone); } catch {}
+      try { const otpRes = await auth.sendOtp(phone); window.__devCode = otpRes.devCode; } catch {}
       navigate(`/verify-otp?phone=${encodeURIComponent(phone)}`);
     } catch (err) {
       setError(err.response?.data?.error || 'خطأ في التسجيل');

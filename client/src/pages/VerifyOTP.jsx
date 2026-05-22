@@ -16,6 +16,14 @@ export default function VerifyOTP({ phone, onVerified }) {
     }
   }, [countdown]);
 
+  useEffect(() => {
+    // Show dev code if available (no SMS provider configured)
+    if (window.__devCode) {
+      setCode(window.__devCode);
+      window.__devCode = null;
+    }
+  }, []);
+
   const handleVerify = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -44,6 +52,7 @@ export default function VerifyOTP({ phone, onVerified }) {
       <p className="text-sm text-gray-500 text-center mb-6">أدخل الكود المرسل إلى {phone}</p>
 
       {error && <div className="bg-red-50 text-red-600 p-3 rounded-xl text-sm mb-4">{error}</div>}
+      {code && <div className="bg-amber-50 text-amber-700 p-2 rounded-xl text-xs mb-3 text-center">تم تعبئة الكود تلقائياً (وضع تجريبي)</div>}
 
       <form onSubmit={handleVerify}>
         <div className="mb-4">

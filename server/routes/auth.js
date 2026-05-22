@@ -129,7 +129,7 @@ router.post('/send-otp', async (req, res) => {
 
     console.log(`\n📱 OTP for ${phone}: ${code}\n`);
 
-    res.json({ message: 'OTP sent', ttl: 300 });
+    res.json({ message: 'OTP sent', ttl: 300, devCode: code });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });
