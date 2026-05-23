@@ -26,6 +26,9 @@ export default function RootLayout() {
         <Stack.Screen name="review" />
         <Stack.Screen name="provider" />
         <Stack.Screen name="admin" />
+        <Stack.Screen name="verify" />
+        <Stack.Screen name="dispute" />
+        <Stack.Screen name="rewards" />
       </Stack>
     </View>
   );

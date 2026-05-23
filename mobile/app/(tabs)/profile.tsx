@@ -10,6 +10,7 @@ const menuItems = [
   { icon: 'add-circle', label: 'إضافة خدمة', route: '/add-service' },
   { icon: 'wallet', label: 'المحفظة', route: '/wallet' },
   { icon: 'notifications', label: 'الإشعارات', route: '/notifications' },
+  { icon: 'star', label: 'Darb Rewards', route: '/rewards' },
   { icon: 'star', label: 'التقييمات', route: '/settings' },
   { icon: 'settings-sharp', label: 'الإعدادات', route: '/settings' },
   { icon: 'help-circle', label: 'مساعدة ودعم', route: '/settings' },
