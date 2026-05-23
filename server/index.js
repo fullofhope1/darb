@@ -9,6 +9,28 @@ const { initDb, getDb } = require('./config/database');
 
 initDb();
 
+// Auto-seed if database is empty
+const fs = require('fs');
+const dbfile = path.join(__dirname, 'darb.db');
+const isFreshDb = !fs.existsSync(dbfile) || fs.statSync(dbfile).size < 1000;
+if (isFreshDb) {
+  console.log('⚡ Database empty, running seed...');
+  require('child_process').execSync('node seed.js', { cwd: __dirname, stdio: 'inherit' });
+} else {
+  try {
+    const cnt = getDb().prepare('SELECT COUNT(*) as c FROM users').get().c;
+    if (cnt === 0) {
+      console.log('⚡ Database has no users, running seed...');
+      require('child_process').execSync('node seed.js', { cwd: __dirname, stdio: 'inherit' });
+    } else {
+      console.log(`✓ Database has ${cnt} users`);
+    }
+  } catch {
+    console.log('⚡ Running seed...');
+    require('child_process').execSync('node seed.js', { cwd: __dirname, stdio: 'inherit' });
+  }
+}
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' } });
