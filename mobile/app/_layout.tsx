@@ -29,6 +29,10 @@ export default function RootLayout() {
         <Stack.Screen name="verify" />
         <Stack.Screen name="dispute" />
         <Stack.Screen name="rewards" />
+        <Stack.Screen name="filter" />
+        <Stack.Screen name="payment-success" />
+        <Stack.Screen name="make-offer" />
+        <Stack.Screen name="orders/my-bookings" />
       </Stack>
     </View>
   );
